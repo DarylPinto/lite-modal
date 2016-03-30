@@ -21,5 +21,5 @@
 
 
 3) Open the modal with a CSS selector or close the modal:  
-`lightModal.open('#sign-up-form');`  
-`lightModal.close();`
+`liteModal.open('#sign-up-form');`  
+`liteModal.close();`
