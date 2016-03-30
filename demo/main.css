@@ -5,6 +5,10 @@ p, button {
 h1{
   margin-top: 5px; }
 
+video, img{
+  max-width: 100%;
+  margin-top: 20px; }
+
 .lite-modal {
   padding: 40px;
   background-color: white;

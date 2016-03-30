@@ -101,12 +101,12 @@ g.liteModal = {
 
 	close: function(){
 		qs('#modal-bg').style.opacity = '0';
-		//If there are any videos in the modals, pause them
-		qsaEach('.lite-modal, .lite-modal video', function(){
-			if(this.nodeName = 'VIDEO') this.pause();
-		});
 		wait(function(){
-			qs('#modal-bg').style.display = 'none';	
+			qs('#modal-bg').style.display = 'none';
+			//If there are any videos in the modals, pause them
+			qsaEach('.lite-modal, .lite-modal video', function(){
+				if(this.nodeName === 'VIDEO') this.pause();
+			});
 		}, 310);
 	}
 
