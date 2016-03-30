@@ -103,9 +103,9 @@ g.liteModal = {
 		qs('#modal-bg').style.opacity = '0';
 		wait(function(){
 			qs('#modal-bg').style.display = 'none';
-			//If there are any videos in the modals, pause them
-			qsaEach('.lite-modal, .lite-modal video', function(){
-				if(this.nodeName === 'VIDEO') this.pause();
+			//If there are are any media elements in the modal, pause them
+			qsaEach('.lite-modal, .lite-modal *', function(){
+				if(typeof this.pause == 'function') this.pause();
 			});
 		}, 310);
 	}
