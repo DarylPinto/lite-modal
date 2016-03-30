@@ -8,13 +8,11 @@
 //Decrease character count with some handy aliases
 var d = document;
 var wait = g.setTimeout;
-function qs(selector){
-	return d.querySelector(selector);
-}
+var qs = d.querySelector.bind(d);
 
 //run callback on every element matched by selector
-function qsaEach(selector, callback){
-	[].slice.call(d.querySelectorAll(selector)).forEach(function(el){callback.call(el)});
+function qsaEach(selector, callback) {
+	[].slice.call(d.querySelectorAll(selector)).forEach(callback);
 }
 
 //Apply object of CSS declarations to an element
