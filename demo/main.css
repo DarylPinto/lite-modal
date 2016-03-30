@@ -1,0 +1,19 @@
+p, button {
+  margin: 20px;
+  font-family: sans-serif; }
+
+h1{
+  margin-top: 5px; }
+
+.lite-modal {
+  padding: 40px;
+  background-color: white;
+  font-family: sans-serif;
+  border-radius: 5px;
+  line-height: 1.6em; }
+
+#lovato{
+  background-color: #FFBBBB; }
+
+#grande{
+  background-color: #C3FFBB; }
