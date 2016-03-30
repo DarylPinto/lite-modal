@@ -40,6 +40,7 @@ d.addEventListener('DOMContentLoaded', function(){
 		height          : '100vh',
 		width           : '100vw',
 		opacity         : '0',
+		zIndex          : '100',
 		display         : 'none'
 	}
 
