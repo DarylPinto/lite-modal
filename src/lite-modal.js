@@ -103,7 +103,7 @@ g.liteModal = {
 		qs('#modal-bg').style.opacity = '0';
 		wait(function(){
 			qs('#modal-bg').style.display = 'none';
-			//If there are are any media elements in the modal, pause them
+			//If there are any media elements in the modal, pause them
 			qsaEach('.lite-modal, .lite-modal *', function(){
 				if(typeof this.pause == 'function') this.pause();
 			});
