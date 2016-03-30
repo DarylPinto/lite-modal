@@ -96,7 +96,7 @@ g.liteModal = {
 		qs('#modal-bg').style.display = 'block';
 		wait(function(){
 			qs('#modal-bg').style.opacity = '1';
-		}, 10);
+		}, 20);
 	},
 
 	close: function(){
