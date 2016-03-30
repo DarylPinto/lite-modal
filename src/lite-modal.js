@@ -3,17 +3,17 @@
 // The light-weight vanilla JS modal script
 // @author Daryl Pinto https://github.com/DarylPinto
 
-(function(){
+(function(g){
 
 //Decrease character count with some handy aliases
 var d = document;
-var wait = window.setTimeout;
+var wait = g.setTimeout;
 function qs(selector){
 	return d.querySelector(selector);
 }
 
-//document.querySelectorAll standard array (not array-like)
-function qsa(selector){
+//run callback on every element matched by selector
+function qsa(selector, callback){
 	return [].slice.call(d.querySelectorAll(selector));
 }
 
@@ -73,9 +73,9 @@ d.addEventListener('DOMContentLoaded', function(){
 	});
 
 	//Escape key closes modal
-	d.onkeydown = function(e) {
+	d.addEventListener('keydown', function(e) {
 		if (e.keyCode == 27) liteModal.close();
-	};
+	});
 
 	//Prevent event bubbling (clicking within modal shouldn't close it)
 	qsa('.lite-modal').forEach(function(el){
@@ -86,8 +86,8 @@ d.addEventListener('DOMContentLoaded', function(){
 
 });
 
-//Open and close functions
-window.liteModal = {
+//Modal open/close functions
+g.liteModal = {
 	open: function(selector){
 		qsa('.lite-modal').forEach(function(el){
 			el.style.display = 'none';
@@ -108,4 +108,4 @@ window.liteModal = {
 
 }
 
-})();
+})(window);
