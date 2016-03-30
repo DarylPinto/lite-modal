@@ -47,13 +47,13 @@ d.addEventListener('DOMContentLoaded', function(){
 	d.body.appendChild(bg);
 
 	//Move modals into modal background
-	qsaEach('.lite-modal', function(){
-		this.style.display = 'none';
-		bg.appendChild(this);
+	qsaEach('.lite-modal', function(el){
+		el.style.display = 'none';
+		bg.appendChild(el);
 	});
 
 	//Center modal
-	qsaEach('.lite-modal', function(){
+	qsaEach('.lite-modal', function(el){
 		var el_css = {
 			position        : 'absolute',
 			top             : '50%',
@@ -62,7 +62,7 @@ d.addEventListener('DOMContentLoaded', function(){
 			transform       : 'translate(-50%, -50%)'
 		}
 
-		applyCSS(this, el_css);
+		applyCSS(el, el_css);
 	});
 
 	//Clicking modal background closes modal
@@ -76,9 +76,9 @@ d.addEventListener('DOMContentLoaded', function(){
 	});
 
 	//Prevent event bubbling (clicking within modal shouldn't close it)
-	qsaEach('.lite-modal', function(){
-		this.addEventListener('click', function(e){
-			e.stopPropagation();
+	qsaEach('.lite-modal', function(el){
+		el.addEventListener('click', function(event){
+			event.stopPropagation();
 		});
 	});
 
@@ -87,8 +87,8 @@ d.addEventListener('DOMContentLoaded', function(){
 //Modal open/close functions
 g.liteModal = {
 	open: function(selector){
-		qsaEach('.lite-modal', function(){
-			this.style.display = 'none';
+		qsaEach('.lite-modal', function(el){
+			el.style.display = 'none';
 		});
 		qs(selector).style.display = 'block';
 		qs('#modal-bg').style.display = 'block';
@@ -102,8 +102,8 @@ g.liteModal = {
 		wait(function(){
 			qs('#modal-bg').style.display = 'none';
 			//If there are any media elements in the modal, pause them
-			qsaEach('.lite-modal, .lite-modal *', function(){
-				if(typeof this.pause == 'function') this.pause();
+			qsaEach('.lite-modal, .lite-modal *', function(el){
+				if(typeof el.pause == 'function') el.pause();
 			});
 		}, 310);
 	}
