@@ -1,4 +1,4 @@
-// Lite Modal https://github.com/DarylPinto/light-modal
+// Lite Modal https://github.com/DarylPinto/lite-modal
 // -----------
 // The light-weight vanilla JS modal script
 // @author Daryl Pinto https://github.com/DarylPinto
@@ -13,14 +13,14 @@ function qs(selector){
 }
 
 //run callback on every element matched by selector
-function qsa(selector, callback){
-	return [].slice.call(d.querySelectorAll(selector));
+function qsaEach(selector, callback){
+	[].slice.call(d.querySelectorAll(selector)).forEach(function(el){callback.call(el)});
 }
 
 //Apply object of CSS declarations to an element
 function applyCSS(el, css_obj){
 	for (var prop in css_obj){
-		if(css_obj.hasOwnProperty(prop)) el.style[prop] = css_obj[prop];
+		el.style[prop] = css_obj[prop];
 	}
 }
 
@@ -49,13 +49,13 @@ d.addEventListener('DOMContentLoaded', function(){
 	d.body.appendChild(bg);
 
 	//Move modals into modal background
-	qsa('.lite-modal').forEach(function(el){
-		el.style.display = 'none';
-		bg.appendChild(el);
+	qsaEach('.lite-modal', function(){
+		this.style.display = 'none';
+		bg.appendChild(this);
 	});
 
 	//Center modal
-	qsa('.lite-modal').forEach(function(el){
+	qsaEach('.lite-modal', function(){
 		var el_css = {
 			position        : 'absolute',
 			top             : '50%',
@@ -64,7 +64,7 @@ d.addEventListener('DOMContentLoaded', function(){
 			transform       : 'translate(-50%, -50%)'
 		}
 
-		applyCSS(el, el_css);
+		applyCSS(this, el_css);
 	});
 
 	//Clicking modal background closes modal
@@ -78,8 +78,8 @@ d.addEventListener('DOMContentLoaded', function(){
 	});
 
 	//Prevent event bubbling (clicking within modal shouldn't close it)
-	qsa('.lite-modal').forEach(function(el){
-		el.addEventListener('click', function(e){
+	qsaEach('.lite-modal', function(){
+		this.addEventListener('click', function(e){
 			e.stopPropagation();
 		});
 	});
@@ -89,8 +89,8 @@ d.addEventListener('DOMContentLoaded', function(){
 //Modal open/close functions
 g.liteModal = {
 	open: function(selector){
-		qsa('.lite-modal').forEach(function(el){
-			el.style.display = 'none';
+		qsaEach('.lite-modal', function(){
+			this.style.display = 'none';
 		});
 		qs(selector).style.display = 'block';
 		qs('#modal-bg').style.display = 'block';
