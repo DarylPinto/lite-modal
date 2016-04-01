@@ -15,6 +15,15 @@ function qsaEach(selector, callback) {
 	[].slice.call(d.querySelectorAll(selector)).forEach(callback);
 }
 
+//Add/Remove Class function since el.classList is not supported in IE9
+function addClass(el, target_class){
+	if(el.className.indexOf(target_class) == -1) el.className += ' '+target_class;
+}
+
+function removeClass(el, target_class){
+	el.className = el.className.replace(new RegExp(target_class, 'g'), '').trim();
+}
+
 //Add CSS
 var style = d.createElement('style');
 
@@ -27,11 +36,10 @@ left:0;\
 transition:.3s opacity;\
 height:100vh;\
 width:100vw;\
-opacity:1;\
 z-index:100;\
 display:none;\
 }\
-#modal-bg.fade{\
+#modal-bg.faded{\
 opacity:0;\
 }\
 .lite-modal{\
@@ -55,7 +63,7 @@ d.addEventListener('DOMContentLoaded', function(){
 	//Create modal background
 	var bg = d.createElement('div');
 	bg.id = 'modal-bg';
-	bg.className = 'fade';
+	bg.className = 'faded';
 	d.body.appendChild(bg);
 
 	//Move modals into modal background
@@ -86,20 +94,18 @@ d.addEventListener('DOMContentLoaded', function(){
 g.liteModal = {
 	open: function(selector){
 		qsaEach('#modal-bg,'+selector, function(el){
-			el.className += ' open';
+			addClass(el, 'open');
 		});
 		wait(function(){
-			//Remove `fade` class (changes opacity to 1)
-			qs('#modal-bg').className = 'open';
+			removeClass(qs('#modal-bg'), 'faded');
 		}, 20);
 	},
 
 	close: function(){
-		qs('#modal-bg').className += ' fade';
+		addClass(qs('#modal-bg'), 'faded');
 		wait(function(){
 			qsaEach('#modal-bg,.lite-modal', function(el){
-				//Remove `open` class
-				el.className = el.className.replace('open', '');
+				removeClass(el, 'open');
 			});
 			//If there are any media elements in the modal, pause them
 			qsaEach('.lite-modal,.lite-modal *', function(el){

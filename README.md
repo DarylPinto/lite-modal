@@ -4,7 +4,7 @@
 
 #### Features:
 
-- 1.35kb minified
+- 1.4kb minified
 - Drop into any project, there are no dependencies! (Written in pure ES5 and CSS3)
 - Compatible with IE9 and above (tested with IE's browser emulation)
 - Works with any block level content (divs, images, videos, you name it!)
