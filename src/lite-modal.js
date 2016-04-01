@@ -37,10 +37,10 @@ transition:.3s opacity;\
 height:100vh;\
 width:100vw;\
 z-index:100;\
-display:none;\
+display:none\
 }\
-#modal-bg.faded{\
-opacity:0;\
+#modal-bg.bg-fade{\
+opacity:0\
 }\
 .lite-modal{\
 position:absolute;\
@@ -48,10 +48,10 @@ top:50%;\
 left:50%;\
 -ms-transform:translate(-50%,-50%);\
 transform:translate(-50%,-50%);\
-display:none;\
+display:none\
 }\
-#modal-bg.open,.lite-modal.open{\
-display:block;\
+#modal-bg.modal-on,.lite-modal.modal-on{\
+display:block\
 }';
 
 style.textContent = css;
@@ -63,7 +63,7 @@ d.addEventListener('DOMContentLoaded', function(){
 	//Create modal background
 	var bg = d.createElement('div');
 	bg.id = 'modal-bg';
-	bg.className = 'faded';
+	bg.className = 'bg-fade';
 	d.body.appendChild(bg);
 
 	//Move modals into modal background
@@ -94,18 +94,18 @@ d.addEventListener('DOMContentLoaded', function(){
 g.liteModal = {
 	open: function(selector){
 		qsaEach('#modal-bg,'+selector, function(el){
-			addClass(el, 'open');
+			addClass(el, 'modal-on');
 		});
 		wait(function(){
-			removeClass(qs('#modal-bg'), 'faded');
+			removeClass(qs('#modal-bg'), 'bg-fade');
 		}, 20);
 	},
 
 	close: function(){
-		addClass(qs('#modal-bg'), 'faded');
+		addClass(qs('#modal-bg'), 'bg-fade');
 		wait(function(){
 			qsaEach('#modal-bg,.lite-modal', function(el){
-				removeClass(el, 'open');
+				removeClass(el, 'modal-on');
 			});
 			//If there are any media elements in the modal, pause them
 			qsaEach('.lite-modal,.lite-modal *', function(el){
