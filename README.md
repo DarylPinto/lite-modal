@@ -9,7 +9,7 @@ Turn *any* element into a modal by simply adding class!
 - **Cross Browser:** Compatible all major browsers including IE9 and above! (Tested with IE's browser emulation)
 - **No jQuery:** Drop into any project, there aren't any dependencies!
 - **Customizable:** As basic as possible, you have control over all the styling!
-- **Lightweight:** Only 1.45kb minified!
+- **Lightweight:** Only 1.4kb minified!
 
 #### Setup
 
