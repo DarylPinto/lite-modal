@@ -1,6 +1,6 @@
 # Lite Modal
 
-**The lightweight vanilla JS modal script**
+**The lightweight vanilla JS modal script**  
 Turn *any* element into a modal by simply adding class!
 
 #### Features
