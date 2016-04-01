@@ -93,7 +93,7 @@ d.addEventListener('DOMContentLoaded', function(){
 //Modal open/close functions
 g.liteModal = {
 	open: function(selector){
-		qsaEach('#modal-bg,'+selector, function(el){
+		qsaEach('#modal-bg,#modal-bg '+selector, function(el){
 			addClass(el, 'modal-on');
 		});
 		wait(function(){

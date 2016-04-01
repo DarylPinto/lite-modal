@@ -1,25 +1,29 @@
 # Lite Modal
 
-**The light-weight vanilla JS modal script!**
+**The lightweight vanilla JS modal script**
+Turn *any* element into a modal by simply adding class!
 
-#### Features:
+#### Features
 
-- 1.4kb minified
-- Drop into any project, there are no dependencies! (Written in pure ES5 and CSS3)
-- Compatible with IE9 and above (tested with IE's browser emulation)
-- Works with any block level content (divs, images, videos, you name it!)
-- Customizable (hardly has any default styling to begin with!)
+- **Flexible:** Works with any content (divs, images, videos, you name it!)
+- **Cross Browser:** Compatible all major browsers including IE9 and above! (Tested with IE's browser emulation)
+- **No jQuery:** Drop into any project, there aren't any dependencies!
+- **Customizable:** As basic as possible, you have control over all the styling!
+- **Lightweight:** Only 1.45kb minified!
 
-#### Setup:
+#### Setup
 
-1) Link to the script in the `<head>` of your project like so:  
+1. Link to the script in the `<head>` of your project like so:  
 `<script type="text/javascript" src="path/to/lite-modal.min.js"></script>`
 
 
-2) Add as many modals to your page as you want, simply by adding the class `lite-modal`:  
-`<div id="sign-up-form" class="lite-modal">...</div>`
+2. Add as many modals to your page as you want with the class `lite-modal`:  
+`<div id="login-form" class="lite-modal">...</div>`
 
 
-3) Open the modal with a CSS selector or close the modal:  
-`liteModal.open('#sign-up-form');`  
-`liteModal.close();`
+3. Open a modal with a CSS selector:  
+`liteModal.open('#login-form');`
+
+4. Close the modal:
+`liteModal.close();`  
+Clicking the background or the ESC key will also close the modal.
