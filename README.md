@@ -1,14 +1,14 @@
 # Lite Modal
 
 **The lightweight vanilla JS modal script**  
-Turn *any* element into a modal by simply adding class!
+Turn *any* element into a modal by simply adding a class!
 
 #### Features
 
-- **Flexible:** Works with any content (divs, images, videos, you name it!)
-- **Cross Browser:** Compatible all major browsers including IE9 and above! (Tested with IE's browser emulation)
-- **No jQuery:** Drop into any project, there aren't any dependencies!
-- **Customizable:** As basic as possible, you have control over all the styling!
+- **Flexible:** Works with any content. (divs, images, videos, you name it!)
+- **Cross Browser:** Compatible with all major browsers including IE9 and above. (Tested with IE's browser emulation)
+- **No jQuery:** Drop it into any project. There are no dependencies!
+- **Customizable:** As plain as possible while providing the functionality. You have control over all the styling!
 - **Lightweight:** Only 1.4kb minified!
 
 #### Setup
@@ -17,11 +17,11 @@ Turn *any* element into a modal by simply adding class!
 `<script type="text/javascript" src="path/to/lite-modal.min.js"></script>`
 
 
-2. Add as many modals to your page as you want with the class `lite-modal`:  
+2. Add as many modals as you want using the class `lite-modal`:  
 `<div id="login-form" class="lite-modal">...</div>`
 
 
-3. Open a modal with a CSS selector:  
+3. Open a specific modal by targeting it with a CSS selector:  
 `liteModal.open('#login-form');`
 
 4. Close the modal:  
