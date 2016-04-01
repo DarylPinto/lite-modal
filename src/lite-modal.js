@@ -27,32 +27,35 @@ function removeClass(el, target_class){
 //Add CSS
 var style = d.createElement('style');
 
-var css = '\
-#modal-bg{\
-background-color:rgba(0,0,0,.5);\
-position:fixed;\
-top:0;\
-left:0;\
-transition:.3s opacity;\
-height:100vh;\
-width:100vw;\
-z-index:100;\
-display:none\
-}\
-#modal-bg.bg-fade{\
-opacity:0\
-}\
-.lite-modal{\
-position:absolute;\
-top:50%;\
-left:50%;\
--ms-transform:translate(-50%,-50%);\
-transform:translate(-50%,-50%);\
-display:none\
-}\
-#modal-bg.modal-on,.lite-modal.modal-on{\
-display:block\
-}';
+var css = '' +
+	'#modal-bg{' +
+		'background-color:rgba(0,0,0,.5);' +
+		'position:fixed;' +
+		'top:0;' +
+		'left:0;' +
+		'transition:.3s opacity;' +
+		'height:100vh;' +
+		'width:100vw;' +
+		'z-index:100;' +
+		'display:none' +
+	'}' +
+
+	'#modal-bg.bg-fade{' +
+		'opacity:0' +
+	'}' +
+
+	'.lite-modal{' +
+		'position:absolute;' +
+		'top:50%;' +
+		'left:50%;' +
+		'-ms-transform:translate(-50%,-50%);' +
+		'transform:translate(-50%,-50%);' +
+		'display:none' +
+	'}' +
+
+	'#modal-bg.modal-on,.lite-modal.modal-on{' +
+		'display:block' +
+	'}';
 
 style.textContent = css;
 d.head.appendChild(style);
