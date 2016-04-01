@@ -24,6 +24,6 @@ Turn *any* element into a modal by simply adding class!
 3. Open a modal with a CSS selector:  
 `liteModal.open('#login-form');`
 
-4. Close the modal:
+4. Close the modal:  
 `liteModal.close();`  
 Clicking the background or the ESC key will also close the modal.
