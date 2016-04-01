@@ -20,29 +20,29 @@ var style = d.createElement('style');
 
 var css = '\
 #modal-bg{\
-background-color:rgba(0,0,0,0.5);\
+background-color:rgba(0,0,0,.5);\
 position:fixed;\
 top:0;\
 left:0;\
-transition:0.3s opacity;\
+transition:.3s opacity;\
 height:100vh;\
 width:100vw;\
 opacity:1;\
 z-index:100;\
 display:none;\
 }\
-#modal-bg.invis{\
+#modal-bg.fade{\
 opacity:0;\
 }\
 .lite-modal{\
 position:absolute;\
 top:50%;\
 left:50%;\
--ms-transform:translate(-50%, -50%);\
-transform:translate(-50%, -50%);\
+-ms-transform:translate(-50%,-50%);\
+transform:translate(-50%,-50%);\
 display:none;\
 }\
-#modal-bg.open, .lite-modal.open{\
+#modal-bg.open,.lite-modal.open{\
 display:block;\
 }';
 
@@ -55,7 +55,7 @@ d.addEventListener('DOMContentLoaded', function(){
 	//Create modal background
 	var bg = d.createElement('div');
 	bg.id = 'modal-bg';
-	bg.classList.add('invis');
+	bg.classList.add('fade');
 	d.body.appendChild(bg);
 
 	//Move modals into modal background
@@ -70,7 +70,7 @@ d.addEventListener('DOMContentLoaded', function(){
 
 	//Escape key closes modal
 	d.addEventListener('keydown', function(e) {
-		if (e.keyCode == 27) liteModal.close();
+		if(e.keyCode == 27) liteModal.close();
 	});
 
 	//Prevent event bubbling (clicking within modal shouldn't close it)
@@ -85,22 +85,22 @@ d.addEventListener('DOMContentLoaded', function(){
 //Modal open/close functions
 g.liteModal = {
 	open: function(selector){
-		qsaEach('#modal-bg, '+selector, function(el){
+		qsaEach('#modal-bg,'+selector, function(el){
 			el.classList.add('open');
 		});
 		wait(function(){
-			qs('#modal-bg').classList.remove('invis');
+			qs('#modal-bg').classList.remove('fade');
 		}, 20);
 	},
 
 	close: function(){
-		qs('#modal-bg').classList.add('invis');
+		qs('#modal-bg').classList.add('fade');
 		wait(function(){
-			qsaEach('#modal-bg, .lite-modal', function(el){
+			qsaEach('#modal-bg,.lite-modal', function(el){
 				el.classList.remove('open');
 			});
 			//If there are any media elements in the modal, pause them
-			qsaEach('.lite-modal, .lite-modal *', function(el){
+			qsaEach('.lite-modal,.lite-modal *', function(el){
 				if(typeof el.pause == 'function') el.pause();
 			});
 		}, 310);
