@@ -5,26 +5,25 @@
 
 (function(g){
 
-//Decrease character count with some handy aliases
+// Decrease character count with some handy aliases
 var d = document;
 var wait = g.setTimeout;
 var qs = d.querySelector.bind(d);
 
-//run callback on every element matched by selector
+// Run callback on every element matched by selector
 function qsaEach(selector, callback) {
 	[].slice.call(d.querySelectorAll(selector)).forEach(callback);
 }
 
-//Add/Remove Class function since el.classList is not supported in IE9
+// Add/Remove Class function since el.classList is not supported in IE9
 function addClass(el, target_class){
 	if(el.className.indexOf(target_class) == -1) el.className += ' '+target_class;
 }
-
 function removeClass(el, target_class){
 	el.className = el.className.replace(new RegExp(target_class, 'g'), '').trim();
 }
 
-//Add CSS
+// Add CSS
 var style = d.createElement('style');
 
 var css = '' +
@@ -60,31 +59,31 @@ var css = '' +
 style.textContent = css;
 d.head.appendChild(style);
 
-//On content load
+// On content load
 d.addEventListener('DOMContentLoaded', function(){
 
-	//Create modal background
+	// Create modal background
 	var bg = d.createElement('div');
 	bg.id = 'modal-bg';
 	bg.className = 'bg-fade';
 	d.body.appendChild(bg);
 
-	//Move modals into modal background
+	// Move modals into modal background
 	qsaEach('.lite-modal', function(el){
 		bg.appendChild(el);
 	});
 
-	//Clicking modal background closes modal
+	// Clicking modal background closes modal
 	bg.addEventListener('click', function(){
 		liteModal.close();
 	});
 
-	//Escape key closes modal
+	// Escape key closes modal
 	d.addEventListener('keydown', function(e) {
 		if(e.keyCode == 27) liteModal.close();
 	});
 
-	//Prevent event bubbling (clicking within modal shouldn't close it)
+	// Prevent event bubbling (clicking within modal shouldn't close it)
 	qsaEach('.lite-modal', function(el){
 		el.addEventListener('click', function(event){
 			event.stopPropagation();
@@ -93,7 +92,7 @@ d.addEventListener('DOMContentLoaded', function(){
 
 });
 
-//Modal open/close functions
+// Modal open/close functions
 g.liteModal = {
 	open: function(selector){
 		qsaEach('#modal-bg,#modal-bg '+selector, function(el){
@@ -110,8 +109,8 @@ g.liteModal = {
 			qsaEach('#modal-bg,.lite-modal', function(el){
 				removeClass(el, 'modal-on');
 			});
-			//If there are any media elements in the modal, pause them
-			qsaEach('.lite-modal,.lite-modal *', function(el){
+			// Pause any modal media elements
+			qsaEach('#modal-bg *', function(el){
 				if(typeof el.pause == 'function') el.pause();
 			});
 		}, 310);
