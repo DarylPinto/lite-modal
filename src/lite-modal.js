@@ -55,7 +55,7 @@ d.addEventListener('DOMContentLoaded', function(){
 	//Create modal background
 	var bg = d.createElement('div');
 	bg.id = 'modal-bg';
-	bg.classList.add('fade');
+	bg.className = 'fade';
 	d.body.appendChild(bg);
 
 	//Move modals into modal background
@@ -86,18 +86,20 @@ d.addEventListener('DOMContentLoaded', function(){
 g.liteModal = {
 	open: function(selector){
 		qsaEach('#modal-bg,'+selector, function(el){
-			el.classList.add('open');
+			el.className += ' open';
 		});
 		wait(function(){
-			qs('#modal-bg').classList.remove('fade');
+			//Remove `fade` class (changes opacity to 1)
+			qs('#modal-bg').className = 'open';
 		}, 20);
 	},
 
 	close: function(){
-		qs('#modal-bg').classList.add('fade');
+		qs('#modal-bg').className += ' fade';
 		wait(function(){
 			qsaEach('#modal-bg,.lite-modal', function(el){
-				el.classList.remove('open');
+				//Remove `open` class
+				el.className = el.className.replace('open', '');
 			});
 			//If there are any media elements in the modal, pause them
 			qsaEach('.lite-modal,.lite-modal *', function(el){
